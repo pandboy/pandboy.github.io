@@ -347,7 +347,7 @@
                 
               
 
-              <time title="创建时间：2019-06-30 15:03:04 / 修改时间：16:34:51" itemprop="dateCreated datePublished" datetime="2019-06-30T15:03:04+08:00">2019-06-30</time>
+              <time title="创建时间：2019-06-30 15:03:04 / 修改时间：17:09:55" itemprop="dateCreated datePublished" datetime="2019-06-30T15:03:04+08:00">2019-06-30</time>
             
 
             
@@ -398,15 +398,52 @@
       
         
           
-            <h1 id="什么是JWT"><a href="#什么是JWT" class="headerlink" title="什么是JWT"></a>什么是JWT</h1><p>  Json web token (JWT), 是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准（(RFC 7519).该token被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。</p>
+            <p>[TOC]</p>
+<h1 id="什么是JWT"><a href="#什么是JWT" class="headerlink" title="什么是JWT"></a>什么是JWT</h1><p>  Json web token (JWT), 是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准（(RFC 7519).该token被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。</p>
 <p>JWT的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该token也可直接被用于认证，也可被加密。</p>
 <h3 id="基于session认证的问题"><a href="#基于session认证的问题" class="headerlink" title="基于session认证的问题"></a>基于session认证的问题</h3><p>   http协议是一种无状态协议，客户端和服务器端进行认证请求时需要用户名密码，我们并不知道时哪个用户发出的请求，为了识别时谁请求的，就要再服务器端存储一份登陆信息，同时会传递给浏览器，告诉其保存为cookie，</p>
 <p>这种传统的session认证暴露出一些问题，用户越多，服务器端开销越大，扩展不好，容易被csrf攻击</p>
 <h3 id="基于token的授权机制"><a href="#基于token的授权机制" class="headerlink" title="基于token的授权机制"></a>基于token的授权机制</h3><p>   基于token的授权机制不需要服务器端保留用户信息，即不需要知道用户在那台服务器登陆了。</p>
-<p>这里用小程序登陆的流程介绍如下图：<br>  登陆之后每次请求都会在header里带上token。</p>
+<p>这里用小程序登陆的流程介绍如下图：</p>
+<p><img src="../images/jwt.jpg" alt=""></p>
+<p>  登陆之后每次请求都会在header里带上token。</p>
 <h3 id="JWT协议"><a href="#JWT协议" class="headerlink" title="JWT协议"></a>JWT协议</h3><p>   JWT有三段信息组成如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvZVhQMTVVWmJHcllreWhSQkhyWnFuNXFKSDM4IiwiY3JlYXRlZCI6MTU0MDgwNjI2NzUxMiwiZXhwIjoxNTQxNDExMDY3LCJrZXkiOiI3b2xOM05QVWlpeHNVWDdIYmdZZmh3PT0ifQ.nxvr_Na0fya9O2fC1rsbghicAU1be6n5fHTP4BdNEKGjyfmi3Z9NZMmlU4rHv5O5bOWWM5vf_-cKskG63dYVVg</span><br></pre></td></tr></table></figure></p>
-<p>   JWT构成</p>
-<p>有三部分组成：头部(header)、载荷(payload)、签名(signature)<br>| 结构      | 描述                                                         |                        |                                                              |<br>| ——— | ———————————————————— | ———————- | ———————————————————— |<br>| header    | JWT的header包含2部分信息                                     | 1、声明类型            | JWT                                                          |<br>|           | 格式：                                                       | 2、声明加密的算法      | 通常HMAC SHA256                                              |<br>|           | {                                                            |                        |                                                              |<br>|           | ‘typ’: ‘JWT’,                                                |                        |                                                              |<br>|           | ‘alg’: ‘HS256’                                               |                        |                                                              |<br>|           | }                                                            |                        |                                                              |<br>|           |                                                              |                        |                                                              |<br>|           | 将其base64加密得到                                           |                        |                                                              |<br>|           | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9                         |                        |                                                              |<br>|           |                                                              |                        |                                                              |<br>|           |                                                              |                        |                                                              |<br>| Claim     | 存放有效信息的地方，包含三个部分                             | 1、标准中注册的声明    | iss: jwt签发者                                               |<br>|           |                                                              |                        | sub: jwt所面向的用户                                         |<br>|           |                                                              |                        | aud: 接收jwt的一方                                           |<br>|           |                                                              |                        | exp: jwt的过期时间，这个过期时间必须要大于签发时间           |<br>|           |                                                              |                        | nbf:   定义在什么时间之前，该jwt都是不可用的.                |<br>|           |                                                              |                        | iat: jwt的签发时间                                           |<br>|           |                                                              |                        | jti: jwt的唯一身份标识，主要用来作为一次性token,从而回避重放攻击。 |<br>|           | 定义个简单的payload :{                                       | 2、公共的声明          | 信息随便填，但不建议放敏感信息，可在客户端解密               |<br>|           | “sub”:   “1234567890”,                                       |                        |                                                              |<br>|           | “name”:   “800best”,                                         |                        |                                                              |<br>|           | “admin”:   true                                              |                        |                                                              |<br>|           | }                                                            |                        |                                                              |<br>|           | base64加密结果                                               | 3、私有的声明          | 提供者和消费者所共同定义的声明，一般不建议存放敏感信息，因为base64是对称解密的，意味着该部分信息可以归类为明文信息。 |<br>|           | eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9 |                        |                                                              |<br>|           |                                                              |                        |                                                              |<br>| signature | 签名信息有三部分组成                                         | 1、header(base64后)    |                                                              |<br>|           | 这个部分需要base64加密后的header和base64加密后的payload使用.连接组成的字符串，然后通过header中声明的加密方式进行加盐secret组合加密，然后就构成了jwt的第三部分。 | 2、payload（base64后） |                                                              |<br>|           | 伪代码：                                                     | 3、secret              | 盐，保存在服务器端                                           |<br>|           | var encodedString   = base64UrlEncode(header) + ‘.’ + base64UrlEncode(payload); |                        |                                                              |<br>|           | var signature   = HMACSHA256(encodedString, ‘secret’);       |                        |                                                              |<br>|           | // TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ               |                        |                                                              |<br>| 注意事项  | secret是保存在服务器端的，jwt的签发生成也是在服务器端的，secret就是用来进行jwt的签发和jwt的验证，所以，它就是你服务端的私钥，在任何场景都不应该流露出去。一旦客户端得知这个secret,   那就意味着客户端是可以自我签发jwt了 |                        |                                                              |</p>
+<h4 id="JWT构成"><a href="#JWT构成" class="headerlink" title="JWT构成"></a>JWT构成</h4><p>有三部分组成：头部(header)、载荷(payload)、签名(signature)</p>
+<h6 id="header"><a href="#header" class="headerlink" title="header:"></a>header:</h6><p>JWT的header声明了2部分信息，类型和加密算法，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&apos;typ&apos;:&apos;JWT&apos;,</span><br><span class="line">&apos;alg&apos;:&apos;HS256&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将其base64加密得到  </p>
+<p>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</p>
+<h6 id="payload"><a href="#payload" class="headerlink" title="payload:"></a>payload:</h6><p>存放有效信息的地方，包含三个部分:</p>
+<p>1、标准中注册的声明</p>
+<ul>
+<li><p>iss: jwt签发者      </p>
+</li>
+<li><p>sub: jwt所面向的用户     </p>
+</li>
+<li><p>aud: 接收jwt的一方    </p>
+</li>
+<li><p>exp: jwt的过期时间，这个过期时间必须要大于签发时间   </p>
+</li>
+<li><p>nbf:   定义在什么时间之前，该jwt都是不可用的.  </p>
+</li>
+<li><p>iat: jwt的签发时间      </p>
+</li>
+<li><p>jti: jwt的唯一身份标识，主要用来作为一次性token,从而回避重放攻击。</p>
+</li>
+</ul>
+<p>定义个简单的payload </p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"sub"</span>:   <span class="string">"1234567890"</span>,</span><br><span class="line"><span class="attr">"name"</span>:   <span class="string">"test"</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>base64加密结果:  eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9</p>
+<p>2、公共的声明</p>
+<p>信息随便填，但不建议放敏感信息，可在客户端解密</p>
+<p>3、私有的声明</p>
+<p>提供者和消费者所共同定义的声明，一般不建议存放敏感信息，因为base64是对称解密的，意味着该部分信息可以归类为明文信息。</p>
+<h6 id="signature"><a href="#signature" class="headerlink" title="signature:"></a>signature:</h6><p>签名信息有三部分组成</p>
+<p>  1、 header(base64后)      这个部分需要base64加密后的header和base64加密后的payload使用.连接组成的字符串，然后通过header中声明的加密方式进行加盐secret组合加密，然后就构成了jwt的第三部分。  </p>
+<p>  2、payload（base64后）     </p>
+<p>  3、secret   保存在服务器端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> encodedString = base64UrlEncode(header) + <span class="string">'.'</span> + base64UrlEncode(payload);		</span><br><span class="line"><span class="keyword">var</span> signature = HMACSHA256(encodedString, <span class="string">'secret'</span>);		</span><br><span class="line"><span class="comment">// TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ</span></span><br></pre></td></tr></table></figure>
+<h6 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项:"></a>注意事项:</h6><p>secret是保存在服务器端的，jwt的签发生成也是在服务器端的，secret就是用来进行jwt的签发和jwt的验证，所以，它就是你服务端的私钥，在任何场景都不应该流露出去。一旦客户端得知这个secret,   那就意味着客户端是可以自我签发jwt了</p>
 <h1 id="安全相关"><a href="#安全相关" class="headerlink" title="安全相关"></a>安全相关</h1><ul>
 <li>不应该在payload里放敏感信息</li>
 <li>保护好secret</li>
