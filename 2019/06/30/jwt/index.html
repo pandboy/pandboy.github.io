@@ -108,24 +108,25 @@
 
 
 
-  <meta name="description" content="在这里记录生活的点点滴滴，读书笔记，技术博客等等。当然还会不定时更新小说，嘿嘿">
+  <meta name="description" content="什么是JWT  Json web token (JWT), 是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准（(RFC 7519).该token被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。 JWT的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该token也可直">
+<meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开始我的博客">
-<meta property="og:url" content="https://www.xflijlq.fun/2018/10/17/hello-world/index.html">
+<meta property="og:title" content="jwt学习笔记">
+<meta property="og:url" content="https://www.xflijlq.fun/2019/06/30/jwt/index.html">
 <meta property="og:site_name" content="自律，自由">
-<meta property="og:description" content="在这里记录生活的点点滴滴，读书笔记，技术博客等等。当然还会不定时更新小说，嘿嘿">
+<meta property="og:description" content="什么是JWT  Json web token (JWT), 是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准（(RFC 7519).该token被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。 JWT的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该token也可直">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-19T06:59:57.797Z">
+<meta property="og:updated_time" content="2019-06-30T08:34:51.339Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开始我的博客">
-<meta name="twitter:description" content="在这里记录生活的点点滴滴，读书笔记，技术博客等等。当然还会不定时更新小说，嘿嘿">
+<meta name="twitter:title" content="jwt学习笔记">
+<meta name="twitter:description" content="什么是JWT  Json web token (JWT), 是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准（(RFC 7519).该token被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。 JWT的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该token也可直">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.xflijlq.fun/2018/10/17/hello-world/"/>
+  <link rel="canonical" href="https://www.xflijlq.fun/2019/06/30/jwt/"/>
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title>开始我的博客 | 自律，自由</title>
+  <title>jwt学习笔记 | 自律，自由</title>
   
 
 
@@ -304,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.xflijlq.fun/2018/10/17/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://www.xflijlq.fun/2019/06/30/jwt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="船长">
@@ -321,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">开始我的博客
+          <h1 class="post-title" itemprop="name headline">jwt学习笔记
               
             
           </h1>
@@ -346,24 +347,12 @@
                 
               
 
-              <time title="创建时间：2018-10-17 10:28:53" itemprop="dateCreated datePublished" datetime="2018-10-17T10:28:53+08:00">2018-10-17</time>
+              <time title="创建时间：2019-06-30 15:03:04 / 修改时间：16:34:51" itemprop="dateCreated datePublished" datetime="2019-06-30T15:03:04+08:00">2019-06-30</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-19 14:59:57" itemprop="dateModified" datetime="2018-10-19T14:59:57+08:00">2018-10-19</time>
               
             
           </span>
@@ -376,7 +365,7 @@
 
           
           
-             <span id="/2018/10/17/hello-world/" class="leancloud_visitors" data-flag-title="开始我的博客">
+             <span id="/2019/06/30/jwt/" class="leancloud_visitors" data-flag-title="jwt学习笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -407,7 +396,20 @@
       
 
       
-        <p>  在这里记录生活的点点滴滴，读书笔记，技术博客等等。<br>当然还会不定时更新小说，嘿嘿</p>
+        <h1 id="什么是JWT"><a href="#什么是JWT" class="headerlink" title="什么是JWT"></a>什么是JWT</h1><p>  Json web token (JWT), 是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准（(RFC 7519).该token被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。</p>
+<p>JWT的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该token也可直接被用于认证，也可被加密。</p>
+<h3 id="基于session认证的问题"><a href="#基于session认证的问题" class="headerlink" title="基于session认证的问题"></a>基于session认证的问题</h3><p>   http协议是一种无状态协议，客户端和服务器端进行认证请求时需要用户名密码，我们并不知道时哪个用户发出的请求，为了识别时谁请求的，就要再服务器端存储一份登陆信息，同时会传递给浏览器，告诉其保存为cookie，</p>
+<p>这种传统的session认证暴露出一些问题，用户越多，服务器端开销越大，扩展不好，容易被csrf攻击</p>
+<h3 id="基于token的授权机制"><a href="#基于token的授权机制" class="headerlink" title="基于token的授权机制"></a>基于token的授权机制</h3><p>   基于token的授权机制不需要服务器端保留用户信息，即不需要知道用户在那台服务器登陆了。</p>
+<p>这里用小程序登陆的流程介绍如下图：<br>  登陆之后每次请求都会在header里带上token。</p>
+<h3 id="JWT协议"><a href="#JWT协议" class="headerlink" title="JWT协议"></a>JWT协议</h3><p>   JWT有三段信息组成如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvZVhQMTVVWmJHcllreWhSQkhyWnFuNXFKSDM4IiwiY3JlYXRlZCI6MTU0MDgwNjI2NzUxMiwiZXhwIjoxNTQxNDExMDY3LCJrZXkiOiI3b2xOM05QVWlpeHNVWDdIYmdZZmh3PT0ifQ.nxvr_Na0fya9O2fC1rsbghicAU1be6n5fHTP4BdNEKGjyfmi3Z9NZMmlU4rHv5O5bOWWM5vf_-cKskG63dYVVg</span><br></pre></td></tr></table></figure></p>
+<p>   JWT构成</p>
+<p>有三部分组成：头部(header)、载荷(payload)、签名(signature)<br>| 结构      | 描述                                                         |                        |                                                              |<br>| ——— | ———————————————————— | ———————- | ———————————————————— |<br>| header    | JWT的header包含2部分信息                                     | 1、声明类型            | JWT                                                          |<br>|           | 格式：                                                       | 2、声明加密的算法      | 通常HMAC SHA256                                              |<br>|           | {                                                            |                        |                                                              |<br>|           | ‘typ’: ‘JWT’,                                                |                        |                                                              |<br>|           | ‘alg’: ‘HS256’                                               |                        |                                                              |<br>|           | }                                                            |                        |                                                              |<br>|           |                                                              |                        |                                                              |<br>|           | 将其base64加密得到                                           |                        |                                                              |<br>|           | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9                         |                        |                                                              |<br>|           |                                                              |                        |                                                              |<br>|           |                                                              |                        |                                                              |<br>| Claim     | 存放有效信息的地方，包含三个部分                             | 1、标准中注册的声明    | iss: jwt签发者                                               |<br>|           |                                                              |                        | sub: jwt所面向的用户                                         |<br>|           |                                                              |                        | aud: 接收jwt的一方                                           |<br>|           |                                                              |                        | exp: jwt的过期时间，这个过期时间必须要大于签发时间           |<br>|           |                                                              |                        | nbf:   定义在什么时间之前，该jwt都是不可用的.                |<br>|           |                                                              |                        | iat: jwt的签发时间                                           |<br>|           |                                                              |                        | jti: jwt的唯一身份标识，主要用来作为一次性token,从而回避重放攻击。 |<br>|           | 定义个简单的payload :{                                       | 2、公共的声明          | 信息随便填，但不建议放敏感信息，可在客户端解密               |<br>|           | “sub”:   “1234567890”,                                       |                        |                                                              |<br>|           | “name”:   “800best”,                                         |                        |                                                              |<br>|           | “admin”:   true                                              |                        |                                                              |<br>|           | }                                                            |                        |                                                              |<br>|           | base64加密结果                                               | 3、私有的声明          | 提供者和消费者所共同定义的声明，一般不建议存放敏感信息，因为base64是对称解密的，意味着该部分信息可以归类为明文信息。 |<br>|           | eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9 |                        |                                                              |<br>|           |                                                              |                        |                                                              |<br>| signature | 签名信息有三部分组成                                         | 1、header(base64后)    |                                                              |<br>|           | 这个部分需要base64加密后的header和base64加密后的payload使用.连接组成的字符串，然后通过header中声明的加密方式进行加盐secret组合加密，然后就构成了jwt的第三部分。 | 2、payload（base64后） |                                                              |<br>|           | 伪代码：                                                     | 3、secret              | 盐，保存在服务器端                                           |<br>|           | var encodedString   = base64UrlEncode(header) + ‘.’ + base64UrlEncode(payload); |                        |                                                              |<br>|           | var signature   = HMACSHA256(encodedString, ‘secret’);       |                        |                                                              |<br>|           | // TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ               |                        |                                                              |<br>| 注意事项  | secret是保存在服务器端的，jwt的签发生成也是在服务器端的，secret就是用来进行jwt的签发和jwt的验证，所以，它就是你服务端的私钥，在任何场景都不应该流露出去。一旦客户端得知这个secret,   那就意味着客户端是可以自我签发jwt了 |                        |                                                              |</p>
+<h1 id="安全相关"><a href="#安全相关" class="headerlink" title="安全相关"></a>安全相关</h1><ul>
+<li>不应该在payload里放敏感信息</li>
+<li>保护好secret</li>
+<li>使用https\</li>
+</ul>
 
       
     </div>
@@ -429,7 +431,7 @@
     <strong>本文作者： </strong>船长</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.xflijlq.fun/2018/10/17/hello-world/" title="开始我的博客">https://www.xflijlq.fun/2018/10/17/hello-world/</a>
+    <a href="https://www.xflijlq.fun/2019/06/30/jwt/" title="jwt学习笔记">https://www.xflijlq.fun/2019/06/30/jwt/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -440,6 +442,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
+          
+        </div>
+      
 
       
       
@@ -449,15 +457,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/01/02/novel1/" rel="next" title="springboot 自动配置原理">
+                <i class="fa fa-chevron-left"></i> springboot 自动配置原理
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/02/novel1/" rel="prev" title="springboot 自动配置原理">
-                springboot 自动配置原理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -502,8 +510,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -575,6 +592,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是JWT"><span class="nav-number">1.</span> <span class="nav-text">什么是JWT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于session认证的问题"><span class="nav-number">1.0.1.</span> <span class="nav-text">基于session认证的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于token的授权机制"><span class="nav-number">1.0.2.</span> <span class="nav-text">基于token的授权机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JWT协议"><span class="nav-number">1.0.3.</span> <span class="nav-text">JWT协议</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安全相关"><span class="nav-number">2.</span> <span class="nav-text">安全相关</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
